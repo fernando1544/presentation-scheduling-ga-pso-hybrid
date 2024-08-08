@@ -16,7 +16,7 @@ def load():
     supervisor_preference = np.zeros([supervisor_no, 2 * preference_no], dtype=np.int8)
 
     # read supExaAssign.csv
-    with open('input_files\SupExaAssign.csv') as file:
+    with open('input_data/SupExaAssign.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
         next(csv_reader)
 
@@ -33,7 +33,7 @@ def load():
     np.fill_diagonal(presentation_presentation, 0)  # mark diagonal with 0 so penalty points can be calculated correctly
 
     # read HC04.csv (staff unavailability)
-    with open('input_files\HC04.csv') as file:
+    with open('input_data/HC04.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
         for row in csv_reader:
@@ -45,7 +45,7 @@ def load():
     slot_presentation[slot_presentation >= 1] = -1  # unavailable slots for presentation are marked with -1
 
     # read HC03.csv (venue unavailability)
-    with open('input_files\HC03.csv') as file:
+    with open('input_data/HC03.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
         for row in csv_reader:
@@ -53,7 +53,7 @@ def load():
             slot_presentation[i, :] = -1  # unavailable slots for presentation are marked with -1
 
     # read SC01.csv (consecutive presentations)
-    with open('input_files\SC01.csv') as file:
+    with open('input_data/SC01.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
         for row in csv_reader:
@@ -61,7 +61,7 @@ def load():
             supervisor_preference[i][0] = int(row[1])
 
     # read SC02.csv (number of days)
-    with open('input_files\SC02.csv') as file:
+    with open('input_data/SC02.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
         for row in csv_reader:
@@ -69,7 +69,7 @@ def load():
             supervisor_preference[i][1] = int(row[1])
 
     # read SC03.csv (change of venue)
-    with open('input_files\SC03.csv') as file:
+    with open('input_data/SC03.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
         for row in csv_reader:
