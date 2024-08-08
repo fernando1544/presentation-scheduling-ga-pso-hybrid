@@ -105,11 +105,11 @@ def write(slot_presentation, supervisor_preference, constraints_count, plot_data
     day_slot_no = venue_no * time_slot_no
     day_no = 5
     slot_no = day_slot_no * day_no
-    venues = ["Viva Room", "Meeting Room", "Interaction Room", "BJIM"]
-    days = ["Mon", "Tues", "Wed", "Thu", "Fri"]
+    venues = ["Aula Magna", "Sala de Conferencias", "Aula 31", "Aula 57"]
+    days = ["Lun", "Mar", "Mie", "Jue", "Vie"]
 
     schedule = PrettyTable()
-    schedule.field_names = ["Day", "Venue",
+    schedule.field_names = ["Dia", "Sala",
                             "0900-0930", "0930-1000", "1000-1030",
                             "1030-1100", "1100-1130", "1130-1200",
                             "1200-1230", "1230-1300", "1400-1430",
