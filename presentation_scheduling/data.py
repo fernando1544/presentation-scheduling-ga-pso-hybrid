@@ -5,18 +5,19 @@ from prettytable import PrettyTable
 from datetime import datetime as date
 
 
-#  load data from csv files
+# Lee los archivos CSV para llenar matrices numpy que representan la asignación de presentaciones, 
+# la disponibilidad de supervisores y las preferencias de estos.
 def load():
-    slot_no = 300
-    supervisor_no = 47
-    presentation_no = 118
-    preference_no = 3
+    slot_no = 300   # La cantidad de slots es una combinación de salas y horarios disponibles.
+    supervisor_no = 47  # Cantidad de supervisores (moderadores y técnicos)
+    presentation_no = 118  # Cantidad de presentaciones
+    preference_no = 3  
     presentation_supervisor = np.zeros([presentation_no, supervisor_no], dtype=np.int8)
     supervisor_slot = np.zeros([supervisor_no, slot_no], dtype=np.int8)
     supervisor_preference = np.zeros([supervisor_no, 2 * preference_no], dtype=np.int8)
 
-    # read supExaAssign.csv
-    with open('input_data/SupExaAssign.csv') as file:
+    # Lee el archivo que mapea presentaciones con asignación de moderadores y técnicos.
+    with open('input_data/ModsAssign.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
         next(csv_reader)
 
@@ -32,7 +33,8 @@ def load():
     presentation_presentation[presentation_presentation >= 1] = 1
     np.fill_diagonal(presentation_presentation, 0)  # mark diagonal with 0 so penalty points can be calculated correctly
 
-    # read HC04.csv (staff unavailability)
+    # Lee la Hard Constrait 04: Los moderadores pueden no 
+    # estar disponibles en determinados horarios.
     with open('input_data/HC04.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
@@ -44,7 +46,8 @@ def load():
     slot_presentation = np.dot(supervisor_slot.transpose(), presentation_supervisor.transpose())
     slot_presentation[slot_presentation >= 1] = -1  # unavailable slots for presentation are marked with -1
 
-    # read HC03.csv (venue unavailability)
+    # Lee la Hard Constrait 03: Algunas salas pueden no estar 
+    # disponibles en determinados horarios.
     with open('input_data/HC03.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
@@ -52,7 +55,9 @@ def load():
             i = [int(_) - 1 for _ in row[1:]]
             slot_presentation[i, :] = -1  # unavailable slots for presentation are marked with -1
 
-    # read SC01.csv (consecutive presentations)
+    # Lee la Soft Constrait 01: 
+    # Número máximo de presentaciones consecutivas que 
+    # cada moderador debería tener, acorde a sus preferencias.
     with open('input_data/SC01.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
@@ -60,7 +65,9 @@ def load():
             i = int(row[0][2:]) - 1  # only underscores in S0__ will be considered
             supervisor_preference[i][0] = int(row[1])
 
-    # read SC02.csv (number of days)
+    # Lee la Soft Constrait 02: 
+    # Número máximo de días que un moderador debe asistir 
+    # a presentaciones, acorde a sus preferencias.
     with open('input_data/SC02.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
@@ -68,7 +75,10 @@ def load():
             i = int(row[0][2:]) - 1  # only underscores in S0__ will be considered
             supervisor_preference[i][1] = int(row[1])
 
-    # read SC03.csv (change of venue)
+    # Lee la Soft Constrait 03: 
+    # Predisposición de los moderadores de cambiar de sala
+    # entre una presentación y otra a las que debe atender. 
+    # (aplica para presentaciones consecutivas)
     with open('input_data/SC03.csv') as file:
         csv_reader = csv.reader(file, delimiter=',')
 
@@ -79,7 +89,7 @@ def load():
     return slot_presentation, presentation_presentation, presentation_supervisor, supervisor_preference
 
 
-# write result to csv file with timestamp
+# Escribe los resultados en un archivo de salida .csv
 def write(slot_presentation, supervisor_preference, constraints_count, plot_data):
     timestamp = date.now().strftime("[%Y-%m-%d %H-%M-%S]")
 
