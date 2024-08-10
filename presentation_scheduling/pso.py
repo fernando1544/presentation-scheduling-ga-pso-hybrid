@@ -2,8 +2,6 @@ from penalty_function import penalty
 import numpy as np
 from numba import njit
 
-# Neighbourhood structures remain the same as before
-
 @njit(cache=True)
 def update_velocity(velocity, personal_best, global_best, candidate, w, c1, c2):
     r1, r2 = np.random.random(), np.random.random()
@@ -58,6 +56,6 @@ def pso(num_particles, iterations, initial_candidates, penalty_point, presentati
         plot_data.append(global_best_penalty)
 
         if iteration % 50 == 0:
-            print("[Iteration ", iteration, "] PSO - Penalty Point: ", global_best_penalty, sep="")
+            print("[Iteracion ", iteration, "] PSO - Penalty Point: ", global_best_penalty, sep="")
 
     return global_best, global_best_penalty, plot_data
