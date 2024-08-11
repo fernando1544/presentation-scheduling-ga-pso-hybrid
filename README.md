@@ -2,6 +2,7 @@
 This repo is intended to solve Presentation Scheduling problem using a hybrid GA and PSO algorithm.
 
 <img src="https://user-images.githubusercontent.com/70183535/190873516-80c3ce3f-310f-48bc-9a89-cd00ac7fbd6b.png" alt="logo-utn" width="300"/>
+
 # Optimización de programación de presentaciones mediante Algoritmos Genéticos y Enjambre de Partículas
 Proyecto para el curso "Algoritmos Genéticos y Optimización Heurística" perteneciente a la carrera de posgrado Especialización en Ingeniería en Sistemas de Información en la UTN FRCU.
 
@@ -26,10 +27,11 @@ Cada presentación es presentada por un orador y supervisada por tres supervisor
 # Algoritmos utilizados
 ## Optimización por enjambre de partículas (PSO)
 <img src="https://github.com/user-attachments/assets/13e0195f-a4b3-41f6-a422-4d15cb1e5d19" alt="image" width="300"/>
+
 Es un algoritmo de optimización inspirado en el comportamiento social de los enjambres de animales, como los pájaros o los peces. En este algoritmo, cada solución posible al problema se representa como una partícula que se mueve en un espacio de búsqueda multidimensional. Las partículas se atraen entre sí y hacia las mejores posiciones que han encontrado, buscando así la mejor solución global.
 
 ## Algorítmo Genético
-Texto
+(Texto)
 
 # Datos
 En este repositorio, hay n = 118 presentaciones, m = 300 franjas horarias y k = 47 supervisores. Hay 4 sedes: (Nombres). Cada día hay 15 turnos de 30 minutos cada uno. Se programan 300 slots de lunes a viernes.
