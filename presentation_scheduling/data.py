@@ -3,13 +3,14 @@ import csv
 from datetime import datetime as date
 import matplotlib.pyplot as plt
 from prettytable import PrettyTable
+import os
 
 # Lee los archivos CSV para llenar matrices numpy que representan la asignación de presentaciones, 
 # la disponibilidad de supervisores y las preferencias de estos.
 def load():
-    slot_no = 300   # La cantidad de slots es una combinación de salas y horarios disponibles.
-    supervisor_no = 47  # Cantidad de supervisores (moderadores y técnicos)
-    presentation_no = 118  # Cantidad de presentaciones
+    slot_no = 280   # La cantidad de slots es una combinación de salas y horarios disponibles.
+    supervisor_no = 40  # Cantidad de supervisores (moderadores y técnicos)
+    presentation_no = 124  # Cantidad de presentaciones
     preference_no = 3  # Número de preferencias para los supervisores
     
     # Inicializa matrices de asignación y preferencias con ceros
@@ -93,39 +94,48 @@ def load():
 def write(slot_presentation, supervisor_preference, constraints_count, plot_data):
     timestamp = date.now().strftime("[%Y-%m-%d %H-%M-%S]")  # Crea una marca de tiempo para el archivo
 
+    # Si no existe el directorio "output" lo crea
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
     # Dibuja el gráfico de penalizaciones por iteraciones
-    title = (f"Improvement of Presentation Scheduling over Iterations\n"
-             f"[Hard Constraints Violated:] {constraints_count[1]} "
-             f"[Soft Constraints Violated:] {constraints_count[2]}\n"
-             f"[Final Penalty Points:] {constraints_count[0]}")
+    title = (f"Mejora en la Programación de Presentaciones a través de las iteraciones\n"
+             f"[Restricciones duras violadas:] {constraints_count[1]} "
+             f"[Restricciones blandas violadas:] {constraints_count[2]}\n"
+             f"[Puntos de penalización:] {constraints_count[0]}")
     plt.title(title)
-    plt.xlabel("Number of Iterations")
-    plt.ylabel("Penalty Points")
+    plt.xlabel("nro. de iteraciones")
+    plt.ylabel("puntos de penalización")
     plt.axis([0, len(plot_data), 0, max(plot_data)])
     plt.plot(plot_data, "r--")
     plt.grid(True)
     plt.ioff()
+    pic = plt.gcf()
     plt.show()
+
+    # Guarda el gráfico resultado
     graph_name = f"graph {timestamp}"
-    plt.savefig(graph_name)  # Guarda el gráfico como archivo
+    pic.savefig("output/" + graph_name)  # Guarda el gráfico como archivo
 
     # Dibuja el horario
-    venue_no = 4  # Número de salas
-    time_slot_no = 15  # Número de slots por día
+    venue_no = 7  # Número de salas
+    time_slot_no = 20  # Número de slots por día
     day_slot_no = venue_no * time_slot_no  # Número total de slots por día
-    day_no = 5  # Número de días
+    day_no = 2  # Número de días
     slot_no = day_slot_no * day_no  # Número total de slots
-    venues = ["Aula Magna", "Sala de Conferencias", "Aula 31", "Aula 57"]
-    days = ["Lun", "Mar", "Mie", "Jue", "Vie"]
+    venues = ["Aula Magna", "Sala de Conferencias", "Aula 31", "Aula 57", "Aula 28", "Aula 29", "Aula 30"]
+    days = ["Día 1", "Día 2"]
 
     # Inicializa la tabla de horarios
     schedule = PrettyTable()
-    schedule.field_names = ["Dia", "Sala",
+    schedule.field_names = ["Día", "Sala",
+                            "0800-0830", "0830-0900",
                             "0900-0930", "0930-1000", "1000-1030",
                             "1030-1100", "1100-1130", "1130-1200",
                             "1200-1230", "1230-1300", "1400-1430",
                             "1430-1500", "1500-1530", "1530-1600",
-                            "1600-1630", "1630-1700", "1700-1730"]
+                            "1600-1630", "1630-1700", "1700-1730",
+                            "1730-1800", "1800-1830", "1830-1900"]
 
     venue = 0
     day = 0
@@ -164,17 +174,18 @@ def write(slot_presentation, supervisor_preference, constraints_count, plot_data
     supervisor_no = supervisor_preference.shape[0]
 
     for supervisor in range(supervisor_no):
-        venue_preference = "No" if supervisor_preference[supervisor][2] else "Yes"
+        venue_preference = "No" if supervisor_preference[supervisor][2] else "Sí"
 
-        print(f"[Supervisor S{str(supervisor + 1).zfill(3)}] "
-              f"[No. of Continuous Presentations: {supervisor_preference[supervisor][3]}] "
-              f"[Day Preference: {supervisor_preference[supervisor][1]}] "
-              f"[Days: {supervisor_preference[supervisor][4]}] "
-              f"[Venue Change Preference: {venue_preference}] "
-              f"[Venue Changes: {supervisor_preference[supervisor][5]}]")
+        print(f"[Moderador #{str(supervisor + 1).zfill(2)}] "
+              f"[Prefiere hasta {supervisor_preference[supervisor][0]} presentaciones consecutivas] "
+              f"[Presentaciones consecutivas: {supervisor_preference[supervisor][3]}] "
+              f"[Preferencia de días: {supervisor_preference[supervisor][1]}] "
+              f"[Días: {supervisor_preference[supervisor][4]}] "
+              f"[Prefiere cambio de sala: {venue_preference}] "
+              f"[Cambios de sala: {supervisor_preference[supervisor][5]}]")
 
     # Escribe los resultados en un archivo CSV con la marca de tiempo
-    filename = f"result {timestamp}.csv"
+    filename = f"output/result {timestamp}.csv"
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)

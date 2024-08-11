@@ -55,7 +55,7 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
 
         # Print status every 50 iterations
         if iteration % 50 == 0:
-            print("[Iteracion ", iteration, "] PSO - Best Penalty Point: ", global_best_penalty, sep="")
+            print("[Iteración ", iteration, "] PSO - Penalty Point: ", global_best_penalty, sep="")
 
         iteration += 1
 

@@ -9,10 +9,10 @@ def penalty(slot_presentation, presentation_presentation, presentation_superviso
     sc_count = 0  # Contador de violaciones de restricciones suaves
     presentation_no = slot_presentation.shape[1]  # Número total de presentaciones
     supervisor_no = supervisor_preference.shape[0]  # Número total de supervisores
-    venue_no = 4  # Número total de lugares
-    time_slot_no = 15  # Número total de intervalos de tiempo
+    venue_no = 7  # Número total de lugares
+    time_slot_no = 20  # Número total de intervalos de tiempo
     day_slot_no = venue_no * time_slot_no  # Número total de intervalos de tiempo por día
-    day_no = 5  # Número total de días
+    day_no = 2  # Número total de días
     presentation_presentation = np.copy(presentation_presentation)  # Copia para manipulación segura
     supervisor_preference[:, 3:6].fill(0)  # Inicializa las preferencias de los supervisores (columnas 3 a 5)
 
