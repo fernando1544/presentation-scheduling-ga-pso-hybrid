@@ -1,2 +1,4 @@
 /__pycache__
 /.idea
+graph*.png
+result*.csv
