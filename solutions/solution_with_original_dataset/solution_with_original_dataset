@@ -1,0 +1,85 @@
+    # PSO Parameters
+    num_particles = 10
+    max_iterations = 500
+
+    w = 0.5  # inertia weight
+    c1 = 1.5 # cognitive (particle) weight
+    c2 = 0.5  # social (swarm) weight
+
+ +-----+----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| Dia |         Sala         | 0900-0930 | 0930-1000 | 1000-1030 | 1030-1100 | 1100-1130 | 1130-1200 | 1200-1230 | 1230-1300 | 1400-1430 | 1430-1500 | 1500-1530 | 1530-1600 | 1600-1630 | 1630-1700 | 1700-1730 |
++-----+----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| Lun |      Aula Magna      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+|     | Sala de Conferencias |           |           |           |           |           |           |    P64    |           |    P77    |           |           |           |           |           |           |
+|     |       Aula 31        |           |           |    P37    |           |           |           |           |           |           |           |           |           |           |           |           |
+|     |       Aula 57        |           |           |           |           |    P78    |           |           |           |           |           |           |           |           |           |           |
+|     |                      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+| Mar |      Aula Magna      |           |           |           |           |           |           |           |           |           |    P61    |           |           |           |           |           |
+|     | Sala de Conferencias |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+|     |       Aula 31        |           |           |           |           |           |    P10    |           |           |           |           |           |           |           |           |           |
+|     |       Aula 57        |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+|     |                      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+| Mie |      Aula Magna      |           |           |           |           |           |           |           |           |           |           |           |           |           |    P59    |           |
+|     | Sala de Conferencias |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+|     |       Aula 31        |           |           |           |           |           |           |           |           |           |           |           |           |    P14    |           |           |
+|     |       Aula 57        |           |           |           |           |           |           |           |           |    P13    |           |           |           |           |           |           |
+|     |                      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+| Jue |      Aula Magna      |    P111   |           |           |           |           |           |           |           |           |           |           |           |           |    P43    |           |
+|     | Sala de Conferencias |           |    P44    |     P7    |           |           |           |           |           |    P46    |           |           |           |           |           |           |
+|     |       Aula 31        |    P60    |           |           |           |           |    P17    |           |           |           |           |    P114   |           |    P18    |           |           |
+|     |       Aula 57        |           |           |           |           |    P58    |           |           |           |           |           |           |           |           |    P42    |           |
+|     |                      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
+| Vie |      Aula Magna      |           |           |           |           |           |           |    P110   |           |           |           |           |           |           |           |           |
+|     | Sala de Conferencias |           |           |           |           |           |           |           |           |           |           |           |           |    P26    |    P12    |           |
+|     |       Aula 31        |           |           |           |           |           |           |           |           |           |           |           |    P34    |           |           |           |
+|     |       Aula 57        |           |    P112   |           |           |           |           |           |           |           |           |           |           |           |           |           |
+|     |                      |           |           |           |           |           |           |           |           |           |           |           |           |           |           |           |
++-----+----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+
+[Supervisor S001] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S002] [No. of Continuous Presentations: 0] [Day Preference: 3] [Days: 0] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S003] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S004] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S005] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 3] [Venue Change Preference: Yes] [Venue Changes: 1]
+[Supervisor S006] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S007] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S008] [No. of Continuous Presentations: 0] [Day Preference: 3] [Days: 0] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S009] [No. of Continuous Presentations: 4] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 1]
+[Supervisor S010] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 3] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S011] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S012] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S013] [No. of Continuous Presentations: 0] [Day Preference: 3] [Days: 0] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S014] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S015] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S016] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S017] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S018] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S019] [No. of Continuous Presentations: 0] [Day Preference: 3] [Days: 0] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S020] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S021] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S022] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S023] [No. of Continuous Presentations: 5] [Day Preference: 3] [Days: 3] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S024] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S025] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S026] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S027] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S028] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S029] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S030] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S031] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S032] [No. of Continuous Presentations: 4] [Day Preference: 3] [Days: 3] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S033] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S034] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S035] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S036] [No. of Continuous Presentations: 4] [Day Preference: 3] [Days: 3] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S037] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S038] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S039] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S040] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S041] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S042] [No. of Continuous Presentations: 2] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S043] [No. of Continuous Presentations: 4] [Day Preference: 3] [Days: 3] [Venue Change Preference: Yes] [Venue Changes: 1]
+[Supervisor S044] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: No] [Venue Changes: 0]
+[Supervisor S045] [No. of Continuous Presentations: 3] [Day Preference: 3] [Days: 2] [Venue Change Preference: Yes] [Venue Changes: 0]
+[Supervisor S046] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: Yes] [Venue Changes: 1]
+[Supervisor S047] [No. of Continuous Presentations: 1] [Day Preference: 3] [Days: 1] [Venue Change Preference: No] [Venue Changes: 0]

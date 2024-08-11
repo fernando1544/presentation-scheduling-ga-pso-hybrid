@@ -32,28 +32,41 @@ def hybrid_system():
     penalty_points = penalty_points[penalty_points.argsort()]  # Ordena los puntos de penalización
 
     # Número máximo de generaciones para el algoritmo genético
+    # GA Parameters
     ga_max_generations = 100
-    population, penalty_points, ga_plot_data = \
-        ga.reproduction(ga_max_generations, population, penalty_points, presentation_presentation,
-                        presentation_supervisor, supervisor_preference)
 
-    # Ejecuta la optimización por enjambre de partículas después del algoritmo genético
+    # Run GA to obtain population and penalty points
+    population, penalty_points, ga_plot_data = ga.reproduction(
+        ga_max_generations, 
+        population, 
+        penalty_points, 
+        presentation_presentation,
+        presentation_supervisor, 
+        supervisor_preference
+    )
+
+    # PSO Parameters
+    num_particles = 10
+    max_iterations = 500
+    candidate = population[0]
+    penalty_point = penalty_points[0]
+
+    # Run PSO using the best candidate from GA as the initial candidate
     best_candidate, best_penalty_point, pso_plot_data = pso(
-        num_particles=population_size,
-        iterations=5000,
-        initial_candidates=population,
-        penalty_point=penalty_points,
+        num_particles=num_particles,
+        max_iterations=max_iterations,
+        initial_candidate=candidate,
+        penalty_point=penalty_point,
         presentation_presentation=presentation_presentation,
         presentation_supervisor=presentation_supervisor,
         supervisor_preference=supervisor_preference
     )
 
-     # Escribe los resultados
-    # Combina los datos de gráficos del algoritmo genético
-    constraint_counts = penalty(best_candidate, presentation_presentation, presentation_supervisor, supervisor_preference)
+    # Escribe los resultados
+    constraint_counts = \
+        penalty(best_candidate, presentation_presentation, presentation_supervisor, supervisor_preference)
     plot_data = np.concatenate([ga_plot_data, pso_plot_data])
-    
-    dt.write(best_candidate, supervisor_preference, constraint_counts, plot_data) # Guarda los resultados
+    dt.write(best_candidate, supervisor_preference, constraint_counts, plot_data)
 
 # Inicia el temporizador, ejecuta el sistema híbrido y calcula el tiempo de ejecución
 start = timer()
