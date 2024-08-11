@@ -2,3 +2,4 @@
 /.idea
 graph*.png
 result*.csv
+/output

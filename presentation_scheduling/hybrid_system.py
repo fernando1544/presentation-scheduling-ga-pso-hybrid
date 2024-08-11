@@ -32,7 +32,7 @@ def hybrid_system():
     penalty_points = penalty_points[penalty_points.argsort()]  # Ordena los puntos de penalización
 
     # Número máximo de generaciones para el algoritmo genético
-    ga_max_generations = 100
+    ga_max_generations = 300
     population, penalty_points, ga_plot_data = \
         ga.reproduction(ga_max_generations, population, penalty_points, presentation_presentation,
                         presentation_supervisor, supervisor_preference)
@@ -40,7 +40,7 @@ def hybrid_system():
     # Ejecuta la optimización por enjambre de partículas después del algoritmo genético
     best_candidate, best_penalty_point, pso_plot_data = pso(
         num_particles=population_size,
-        iterations=5000,
+        iterations=500,
         initial_candidates=population,
         penalty_point=penalty_points,
         presentation_presentation=presentation_presentation,

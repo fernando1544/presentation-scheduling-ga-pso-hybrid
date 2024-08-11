@@ -56,6 +56,6 @@ def pso(num_particles, iterations, initial_candidates, penalty_point, presentati
         plot_data.append(global_best_penalty)
 
         if iteration % 50 == 0:
-            print("[Iteracion ", iteration, "] PSO - Penalty Point: ", global_best_penalty, sep="")
+            print("[Iteración ", iteration, "] PSO - Penalty Point: ", global_best_penalty, sep="")
 
     return global_best, global_best_penalty, plot_data

@@ -137,6 +137,6 @@ def reproduction(max_generations, population, penalty_points, presentation_prese
 
         # Imprime el punto de penalización cada 50 iteraciones
         if (generation + 1) % 50 == 0:
-            print("[Iteration ", generation + 1, "] Penalty Point: ", penalty_points[0], sep="")
+            print("[Iteración ", generation + 1, "] AG - Penalty Point: ", penalty_points[0], sep="")
 
     return population, penalty_points, plot_data  # Devuelve la población, los puntos de penalización y los datos de gráficos
