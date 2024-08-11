@@ -8,9 +8,9 @@ import os
 # Lee los archivos CSV para llenar matrices numpy que representan la asignación de presentaciones, 
 # la disponibilidad de supervisores y las preferencias de estos.
 def load():
-    slot_no = 300   # La cantidad de slots es una combinación de salas y horarios disponibles.
-    supervisor_no = 47  # Cantidad de supervisores (moderadores y técnicos)
-    presentation_no = 118  # Cantidad de presentaciones
+    slot_no = 280   # La cantidad de slots es una combinación de salas y horarios disponibles.
+    supervisor_no = 40  # Cantidad de supervisores (moderadores y técnicos)
+    presentation_no = 124  # Cantidad de presentaciones
     preference_no = 3  # Número de preferencias para los supervisores
     
     # Inicializa matrices de asignación y preferencias con ceros
@@ -118,22 +118,24 @@ def write(slot_presentation, supervisor_preference, constraints_count, plot_data
     pic.savefig("output/" + graph_name)  # Guarda el gráfico como archivo
 
     # Dibuja el horario
-    venue_no = 4  # Número de salas
-    time_slot_no = 15  # Número de slots por día
+    venue_no = 7  # Número de salas
+    time_slot_no = 20  # Número de slots por día
     day_slot_no = venue_no * time_slot_no  # Número total de slots por día
-    day_no = 5  # Número de días
+    day_no = 2  # Número de días
     slot_no = day_slot_no * day_no  # Número total de slots
-    venues = ["Aula Magna", "Sala de Conferencias", "Aula 31", "Aula 57"]
-    days = ["Lun", "Mar", "Mie", "Jue", "Vie"]
+    venues = ["Aula Magna", "Sala de Conferencias", "Aula 31", "Aula 57", "Aula 28", "Aula 29", "Aula 30"]
+    days = ["Día 1", "Día 2"]
 
     # Inicializa la tabla de horarios
     schedule = PrettyTable()
-    schedule.field_names = ["Dia", "Sala",
+    schedule.field_names = ["Día", "Sala",
+                            "0800-0830", "0830-0900",
                             "0900-0930", "0930-1000", "1000-1030",
                             "1030-1100", "1100-1130", "1130-1200",
                             "1200-1230", "1230-1300", "1400-1430",
                             "1430-1500", "1500-1530", "1530-1600",
-                            "1600-1630", "1630-1700", "1700-1730"]
+                            "1600-1630", "1630-1700", "1700-1730",
+                            "1730-1800", "1800-1830", "1830-1900"]
 
     venue = 0
     day = 0

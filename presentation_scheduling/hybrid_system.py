@@ -32,7 +32,7 @@ def hybrid_system():
     penalty_points = penalty_points[penalty_points.argsort()]  # Ordena los puntos de penalización
 
     # Número máximo de generaciones para el algoritmo genético
-    ga_max_generations = 300
+    ga_max_generations = 9000
     population, penalty_points, ga_plot_data = \
         ga.reproduction(ga_max_generations, population, penalty_points, presentation_presentation,
                         presentation_supervisor, supervisor_preference)
