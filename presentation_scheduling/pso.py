@@ -8,13 +8,13 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
     
     # Initialize particle positions and velocities
    # particles = np.array([np.copy(initial_candidate) for _ in range(num_particles)])
-    particles =  np.array([np.random.uniform(0, 1, initial_candidate.shape) for _ in range(num_particles)])
-    particles[0] = initial_candidate
+    particles =  np.array([np.clip(np.random.uniform(0, 1, initial_candidate.shape), 0, 1) for _ in range(num_particles)])
+    #particles[0] = initial_candidate
     velocities = np.array([np.random.uniform(-1, 1, initial_candidate.shape) for _ in range(num_particles)])
-
+    
     # Initialize personal bests and global best
     personal_best_positions = np.copy(particles)
-    personal_best_penalties = np.full(num_particles, penalty_point)
+    personal_best_penalties = np.array([penalty(particle) for particle in particles])
     global_best_position = np.copy(initial_candidate)
     global_best_penalty = penalty_point
 
