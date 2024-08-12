@@ -5,9 +5,12 @@ import numpy as np
 def pso(num_particles, max_iterations, initial_candidate, penalty_point, presentation_presentation,
         presentation_supervisor, supervisor_preference):
     
+    
     # Initialize particle positions and velocities
-    particles = np.array([np.copy(initial_candidate) for _ in range(num_particles)])
-    velocities = np.random.uniform(-1, 1, particles.shape)
+   # particles = np.array([np.copy(initial_candidate) for _ in range(num_particles)])
+    particles =  np.array([np.random.uniform(0, 1, initial_candidate.shape) for _ in range(num_particles)])
+    particles[0] = initial_candidate
+    velocities = np.array([np.random.uniform(-1, 1, initial_candidate.shape) for _ in range(num_particles)])
 
     # Initialize personal bests and global best
     personal_best_positions = np.copy(particles)
@@ -15,9 +18,9 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
     global_best_position = np.copy(initial_candidate)
     global_best_penalty = penalty_point
 
-    w = 0.5  # inertia weight
+    w = 0.05  # inertia weight
     c1 = 1.5 # cognitive (particle) weight
-    c2 = 0.5  # social (swarm) weight
+    c2 = 0.8  # social (swarm) weight
 
     plot_data = []
     iteration = 0
@@ -25,10 +28,10 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
     while iteration < max_iterations:
         for i in range(num_particles):
             # Update velocity
-            r1, r2 = np.random.rand(), np.random.rand()
+            r1, r2 = np.random.uniform(0, 1, initial_candidate.shape), np.random.uniform(0, 1, initial_candidate.shape)
             velocities[i] = w * velocities[i] + \
-                            c1 * r1 * (personal_best_positions[i] - particles[i]) + \
-                            c2 * r2 * (global_best_position - particles[i])
+                            c1 * np.multiply(r1, (personal_best_positions[i] - particles[i])) + \
+                            c2 * np.multiply(r2, (global_best_position - particles[i]))
 
             # Update particle position
             particles[i] = particles[i] + velocities[i]
