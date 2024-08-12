@@ -1,7 +1,7 @@
 # presentation-scheduling-ga-pso-hybrid
 This repo is intended to solve Presentation Scheduling problem using a hybrid GA and PSO algorithm.
 
-<img src="https://user-images.githubusercontent.com/70183535/190873516-80c3ce3f-310f-48bc-9a89-cd00ac7fbd6b.png" alt="logo-utn" width="300"/>
+![logo-utn (7)](https://github.com/user-attachments/assets/d3e8c7da-c73d-4b6c-90bd-b831d361291e)
 
 # Optimización de programación de presentaciones mediante Algoritmos Genéticos y Enjambre de Partículas
 Proyecto para el curso "Algoritmos Genéticos y Optimización Heurística" perteneciente a la carrera de posgrado Especialización en Ingeniería en Sistemas de Información en la UTN FRCU.
