@@ -1,26 +1,37 @@
 from penalty_function import penalty
 import numpy as np
+import genetic_algorithm as ga
 
 # Particle Swarm Optimization (PSO) algorithm for Presentation Scheduling
 def pso(num_particles, max_iterations, initial_candidate, penalty_point, presentation_presentation,
-        presentation_supervisor, supervisor_preference):
+        presentation_supervisor, supervisor_preference, slot_presentation):
     
-    
+    sc_array = np.array([1, 5, 10])
+
     # Initialize particle positions and velocities
-   # particles = np.array([np.copy(initial_candidate) for _ in range(num_particles)])
     particles =  np.array([np.clip(np.random.uniform(0, 1, initial_candidate.shape), 0, 1) for _ in range(num_particles)])
-    #particles[0] = initial_candidate
     velocities = np.array([np.random.uniform(-1, 1, initial_candidate.shape) for _ in range(num_particles)])
-    
+
+    # Crea la población inicial
+    for i in range(num_particles):
+        # Genera un cromosoma aleatorio
+        chromosome = ga.generate_chromosome(slot_presentation)
+        particles[i] = chromosome  # Asigna el cromosoma a la población
+        
+        # Calcula los puntos de penalización para el cromosoma
+        # penalty_point = penalty(chromosome, presentation_presentation, presentation_supervisor, supervisor_preference)[0]
+        # personal_best_penalties[i] = penalty_point # Asigna el punto de penalización al vector
+   
     # Initialize personal bests and global best
+    particles[0] = initial_candidate
     personal_best_positions = np.copy(particles)
-    personal_best_penalties = np.array([penalty(particle) for particle in particles])
+    personal_best_penalties = np.array([np.dot(sc_array, penalty(particle, presentation_presentation, presentation_supervisor, supervisor_preference)) for particle in particles])
     global_best_position = np.copy(initial_candidate)
     global_best_penalty = penalty_point
 
-    w = 0.05  # inertia weight
-    c1 = 1.5 # cognitive (particle) weight
-    c2 = 0.8  # social (swarm) weight
+    w = 0.7 # inertia weight
+    c1 = 1.49 # cognitive (particle) weight
+    c2 = 1.49  # social (swarm) weight
 
     plot_data = []
     iteration = 0
@@ -41,7 +52,7 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
             particles[i] = np.where(particles[i] >= 0.5, 1, 0)
 
             # Calculate penalty for the current particle
-            current_penalty = penalty(particles[i], presentation_presentation, presentation_supervisor, supervisor_preference)[0]
+            current_penalty = np.dot(sc_array, penalty(particles[i], presentation_presentation, presentation_supervisor, supervisor_preference))
 
             # Update personal best
             if current_penalty < personal_best_penalties[i]:

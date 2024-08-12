@@ -13,7 +13,7 @@ def hybrid_system():
     # Inicializa matrices y parámetros
     slot_no = slot_presentation.shape[0]  # Número total de slots
     presentation_no = slot_presentation.shape[1]  # Número total de presentaciones
-    population_size = 50  # Tamaño de la población para el algoritmo genético
+    population_size = 100  # Tamaño de la población para el algoritmo genético
     population = np.empty([population_size, slot_no, presentation_no], dtype=np.int8)  # Matriz para almacenar la población
     penalty_points = np.empty(population_size, dtype=int)  # Vector para almacenar los puntos de penalización
 
@@ -39,13 +39,14 @@ def hybrid_system():
 
     # Run PSO using the best candidate from GA as the initial candidate
     best_candidate, best_penalty_point, pso_plot_data = pso(
-        num_particles=25,
-        max_iterations=500,
+        num_particles=50,
+        max_iterations=300,
         initial_candidate=population[0],
         penalty_point=penalty_points[0],
         presentation_presentation=presentation_presentation,
         presentation_supervisor=presentation_supervisor,
-        supervisor_preference=supervisor_preference
+        supervisor_preference=supervisor_preference,
+        slot_presentation=slot_presentation,
     )
 
     # Escribe los resultados
