@@ -28,6 +28,8 @@ Cada presentación es presentada por un orador y supervisada por tres supervisor
 Es un algoritmo de optimización inspirado en el comportamiento social de los enjambres de animales, como los pájaros o los peces. En este algoritmo, cada solución posible al problema se representa como una partícula que se mueve en un espacio de búsqueda multidimensional. Las partículas se atraen entre sí y hacia las mejores posiciones que han encontrado, buscando así la mejor solución global.
 
 ## Algorítmo Genético
+<img src="https://github.com/user-attachments/assets/d51eae81-b6d3-4a12-b2fe-a3c864f37084" alt="image" width="300"/>
+
 Es un algoritmos que se basa en el concepto de evolución de las especies, donde los individuos (candidatos solución) evolucionan a través de generaciones (iteraciones) mediante mecanismos de selección, cruzamiento y mutación. En general emula el proceso de evolución y selección natural. Los individuos más aptos "sobreviven" y transmiten sus características a las nuevas generaciones. Ocasionalmente pueden aparecer individuos con características diferentes debido a procesos de mutación.
 
 # Datos
