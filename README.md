@@ -1,6 +1,3 @@
-# presentation-scheduling-ga-pso-hybrid
-This repo is intended to solve Presentation Scheduling problem using a hybrid GA and PSO algorithm.
-
 ![logo-utn (7)](https://github.com/user-attachments/assets/d3e8c7da-c73d-4b6c-90bd-b831d361291e)
 
 # Optimización de programación de presentaciones mediante Algoritmos Genéticos y Enjambre de Partículas
@@ -34,7 +31,7 @@ Es un algoritmo de optimización inspirado en el comportamiento social de los en
 (Texto)
 
 # Datos
-En este repositorio, hay n = 124 presentaciones, m = 280 franjas horarias y k = 40 supervisores. Hay 4 sedes: (Nombres). Cada día hay 15 turnos de 30 minutos cada uno. Se programan 280 slots 2 días de 15 a 21hs.
+En este repositorio, hay n = 124 presentaciones, m = 280 franjas horarias y k = 40 supervisores. Hay 7 aulas. Cada día hay 40 turnos (20 cada día) de 30 minutos cada uno. Se programan 280 slots 2 días de 8 a 19hs, teniendo un break de 13 a 14hs.
 Tenga en cuenta que cada franja horaria es una combinación de una sede y una franja horaria.
 
 ## Restricciones
@@ -93,8 +90,5 @@ Ejecuta hybrid_system.py.
 
 🔓 Modifica data.py y input_files para otros formatos de datos, como json o txt.
 
-# Resultados Experimentales
-(imagenes)
-
 # Referencias
-(libros e inspo)
+Hybrid-Genetic-Algorithm-Simulated-Annealing-for-Presentation-Scheduling (https://github.com/rayjasson98/Hybrid-Genetic-Algorithm-Simulated-Annealing-for-Presentation-Scheduling)
