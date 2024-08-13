@@ -28,7 +28,7 @@ Cada presentación es presentada por un orador y supervisada por tres supervisor
 Es un algoritmo de optimización inspirado en el comportamiento social de los enjambres de animales, como los pájaros o los peces. En este algoritmo, cada solución posible al problema se representa como una partícula que se mueve en un espacio de búsqueda multidimensional. Las partículas se atraen entre sí y hacia las mejores posiciones que han encontrado, buscando así la mejor solución global.
 
 ## Algorítmo Genético
-(Texto)
+Es un algoritmos que se basa en el concepto de evolución de las especies, donde los individuos (candidatos solución) evolucionan a través de generaciones (iteraciones) mediante mecanismos de selección, cruzamiento y mutación. En general emula el proceso de evolución y selección natural. Los individuos más aptos "sobreviven" y transmiten sus características a las nuevas generaciones. Ocasionalmente pueden aparecer individuos con características diferentes debido a procesos de mutación.
 
 # Datos
 En este repositorio, hay n = 124 presentaciones, m = 280 franjas horarias y k = 40 supervisores. Hay 7 aulas. Cada día hay 40 turnos (20 cada día) de 30 minutos cada uno. Se programan 280 slots 2 días de 8 a 19hs, teniendo un break de 13 a 14hs.
