@@ -37,7 +37,7 @@ def hybrid_system():
         ga.reproduction(ga_max_generations, population, penalty_points, presentation_presentation,
                         presentation_supervisor, supervisor_preference) 
 
-    # Run PSO using the best candidate from GA as the initial candidate
+    # Corremos PSO usando el mejor candidato del GA
     best_candidate, best_penalty_point, pso_plot_data = pso(
         num_particles=50,
         max_iterations=300,
