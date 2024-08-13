@@ -39,8 +39,8 @@ def hybrid_system():
 
     # Corremos PSO usando el mejor candidato del GA
     best_candidate, best_penalty_point, pso_plot_data = pso(
-        num_particles=50,
-        max_iterations=300,
+        num_particles=75,
+        max_iterations=500,
         initial_candidate=population[0],
         penalty_point=penalty_points[0],
         presentation_presentation=presentation_presentation,

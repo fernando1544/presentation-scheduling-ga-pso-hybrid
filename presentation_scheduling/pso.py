@@ -6,6 +6,7 @@ import genetic_algorithm as ga
 def pso(num_particles, max_iterations, initial_candidate, penalty_point, presentation_presentation,
         presentation_supervisor, supervisor_preference, slot_presentation):
     
+    # Le multiplicamos diferentes coeficientes a las soft constrains segun la importancia que le demos 
     sc_array = np.array([1, 5, 10])
 
     # Inicializamos las posiciones de las particulas y las velocidades
@@ -30,9 +31,9 @@ def pso(num_particles, max_iterations, initial_candidate, penalty_point, present
     global_best_position = np.copy(initial_candidate)
     global_best_penalty = penalty_point
 
-    w = 0.7 # Inercia
-    c1 = 1.49 # Coeficiente cognitivo
-    c2 = 1.49  # Coeficiente social
+    w = 0.15 # Inercia
+    c1 = 1.6 # Coeficiente cognitivo
+    c2 = 0.8  # Coeficiente social
 
     plot_data = []
     iteration = 0
